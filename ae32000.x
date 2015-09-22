@@ -18,8 +18,9 @@ SECTIONS
 {
   /* Read-only sections, merged into text segment: */
   .text      :
-  { 
+  {
 	*(.vects)
+	. = 0x200;
 	*(.text .stub .text.* .gnu.linkonce.t.*)
 	*(.gnu.warning)
     *(.rodata .rodata.*)

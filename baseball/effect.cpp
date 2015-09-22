@@ -1,5 +1,5 @@
 #include "effect.h"
-#include "../../../EagleClass/error.h"
+#include "../../../soft/EagleClass/error.h"
 #include <libst.h>
 using GAME::C_EFFECT;
 vgSURFACE *C_EFFECT::Effect[2] = {0,};

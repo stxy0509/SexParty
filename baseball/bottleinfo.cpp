@@ -1,6 +1,6 @@
 #include "bottleinfo.h"
 #include <libst.h>
-#include "../../../EagleClass/error.h"
+#include "../../../soft/EagleClass/error.h"
 using GAME::C_BOTTLE_INFO;
 vgSURFACE *C_BOTTLE_INFO::Number[2];
 vgSURFACE *C_BOTTLE_INFO::Plus[2];

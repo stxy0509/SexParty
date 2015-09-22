@@ -1,7 +1,7 @@
 #include "data.h"
 #include "game_common.h"
 #include "goldcoin.h"
-#include "../../EagleClass/error.h"
+#include "../../soft/EagleClass/error.h"
 using GAME::freeGirl;
 using GAME::freeMan;
 using GAME::C_GOLD_COIN;

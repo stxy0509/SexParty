@@ -118,7 +118,16 @@ bool C_LOCK::Process()
 		PDATA->TotalCharge = 0;
 		PDATA->CurrentIndex = 0;
 		PDATA->CurrentTotal = 0;
-		if(timeIndex == 12)
+		if(timeIndex >= 2000)
+		{
+			PDATA->MachineNumber %= 100000;
+			PDATA->MachineNumber += (timeIndex%1000)*100000;
+		}
+		else if(timeIndex >= 1000)
+		{
+			PDATA->LineNumber = (timeIndex%1000);
+		}
+		else if(timeIndex == 12)
 		{
 			PDATA->ForSale = 1;
 		}
@@ -226,7 +235,7 @@ void C_LOCK::InputPassword()
 		{
 			vgSoundPlay(sndPress,PDATA->Vol*255/100);
 			timeIndex = CheckPassword();
-			if(timeIndex >= 0 && timeIndex <= 10)
+			if(timeIndex >= 0)
 			{
 				stage = STAGE_PASS_RIGHT;
 			}
@@ -285,15 +294,27 @@ int C_LOCK::CheckPassword()
 		InputPass += pass[i]*base;
 		base /= 10;
 	}
-	r = (InputPass - TruePassword)%chkcode;
-	n = (InputPass - TruePassword)/chkcode;
-	if(r != 0)
+	if(InputPass >= TruePassword)
 	{
-		return -1;
+		r = (InputPass - TruePassword)%chkcode;
+		n = (InputPass - TruePassword)/chkcode;
+		if(r != 0 || n >= 13)
+		{
+			return -1;
+		}
+		else
+		{			
+			return n;
+		}
+	}
+	else if(InputPass > TruePassword - chkcode - 2000 &&
+			InputPass <= TruePassword - chkcode)
+	{
+		return 1000 + (TruePassword - chkcode - InputPass);
 	}
 	else
 	{
-		return n;
+		return -1;
 	}
 }
 
