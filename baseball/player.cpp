@@ -1,7 +1,7 @@
 #include "player.h"
 #include "../uptimer.h"
 #include "../game_common.h"
-#include "../../../EagleClass/error.h"
+#include "../../../soft/EagleClass/error.h"
 #include <libst.h>
 using GAME::C_PLAYER;
 int C_PLAYER::Loaded = false;

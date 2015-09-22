@@ -1,6 +1,6 @@
 #ifndef DATA_H_
 #define DATA_H_
-#include "../../EagleClass/safe_rwflash.h"
+#include "../../soft/EagleClass/safe_rwflash.h"
 #include "consumetime.h"
 struct Player
 {

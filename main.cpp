@@ -10,11 +10,11 @@
 #include <libst.h>
 #include <stdexcept>
 #include "encrypt/encrypt.h"
-#include "../../EagleClass/error.h"
+#include "../../soft/EagleClass/error.h"
 using GAME::PDATA;
 using GAME::PKEY;
 bool enterSetting = false;
-const char *version = "0001";
+const char *version = "0002";
 C_DEBUG debug(800,600);
 namespace
 {
