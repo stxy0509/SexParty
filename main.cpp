@@ -14,7 +14,7 @@
 using GAME::PDATA;
 using GAME::PKEY;
 bool enterSetting = false;
-const char *version = "0002";
+const char *version = "0003";
 C_DEBUG debug(800,600);
 namespace
 {

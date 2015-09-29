@@ -182,7 +182,6 @@ void C_START_INFO::End()
 				pls[i].p = PDATA->Players[i];
 				pls[i].num = i;
 				pls[i].isman = (i%2 == 0);
-				PDATA->DeleteRole(i);
 			}
 			std::sort(pls,pls + MAX_PLAYERS,Greater);
 			sorted = true;
@@ -208,6 +207,10 @@ void C_START_INFO::End()
 			GAME::needBonus = false;
 			vgSoundStop(sndGameOver);
 			PDATA->InDemo = true;
+			for(int i=0;i<MAX_PLAYERS;i++)
+			{
+				PDATA->DeleteRole(i);
+			}
 			PDATA->MainGameStage = STAGE_SELECT_ROLE;
 			GAME::PDEMOTIME->SetTotalSeconds(3600);
 			PDATA->Write();

@@ -207,7 +207,12 @@ int C_DATA::ChiefMan()
 	{
 		return 4;
 	}
-	return NextMan(-1);
+	int res = NextMan(-1);
+	if(res == MAX_PLAYERS)
+	{
+		res = 2;
+	}
+	return res;
 }
 
 bool C_DATA::SeatHaveRole(int n)
